@@ -138,10 +138,14 @@ add_action( 'widgets_init', 'sport_product_theme_widgets_init' );
  * Enqueue scripts and styles.
  */
 function sport_product_theme_scripts() {
-	wp_enqueue_style( 'sport-product-theme-style', get_stylesheet_uri(), array(), _S_VERSION );
+	wp_enqueue_style( 'sport-product-bootstrap-css', get_template_directory_uri() . '/css/bootstrap.min.css', array(), 1, 'all');
+	wp_enqueue_style( 'sport-product-custom', get_template_directory_uri() . '/css/custom.css', array(), 1, 'all');
 	wp_style_add_data( 'sport-product-theme-style', 'rtl', 'replace' );
 
 	wp_enqueue_script( 'sport-product-theme-navigation', get_template_directory_uri() . '/js/navigation.js', array(), _S_VERSION, true );
+	wp_enqueue_script( 'sport-product-theme-bootstrap', get_template_directory_uri() . '/js/bootstrap.min.js', array(), _S_VERSION, true );
+	wp_enqueue_script( 'sport-product-theme-customizer', get_template_directory_uri() . '/js/customizer.js', array('jquery'), '20170710', true );
+    
 
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );

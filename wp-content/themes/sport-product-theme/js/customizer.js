@@ -8,6 +8,7 @@
  */
 
 ( function( $ ) {
+	alert("test js");
 	// Site title and description.
 	wp.customize( 'blogname', function( value ) {
 		value.bind( function( to ) {
